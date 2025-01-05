@@ -1,0 +1,582 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: clip;
+    
+    z-index: 0;
+    font-family: poppins;
+    
+    
+
+    
+}
+
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+  ::-webkit-scrollbar-track {
+    background: #3c3753; /* Track background */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #011a38; /* Thumb color */
+    border-radius: 6px; /* Rounded corners */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1b0303; /* Thumb color on hover */
+  }
+
+  ::-webkit-scrollbar-button {
+    background: #c4c3c3; /* Scrollbar buttons (if visible) */
+  }
+
+  /* For non-WebKit browsers (optional fallback) */
+  
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: rgb(22, 19, 78);
+    scroll-behavior: smooth;
+    position: relative;
+    
+    /* overflow-x: hidden; */
+    
+}
+.box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    
+    /* Ensure it's behind other content */
+  }
+.box div {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border: 6px solid rgba(208, 190, 190, 0.8);
+    animation: animate 10s linear infinite;
+    
+  }
+
+.box div:nth-child(1) { top: 12%; left: 42%; animation: animate 10s linear infinite; }
+    .box div:nth-child(2) { top: 70%; left: 50%; animation: animate 7s linear infinite; }
+    .box div:nth-child(3) { top: 17%; left: 6%; animation: animate 9s linear infinite; }
+    .box div:nth-child(4) { top: 20%; left: 60%; animation: animate 10s linear infinite; }
+    .box div:nth-child(5) { top: 67%; left: 10%; animation: animate 6s linear infinite; }
+    .box div:nth-child(6) { top: 80%; left: 70%; animation: animate 12s linear infinite; }
+    .box div:nth-child(7) { top: 60%; left: 70%; animation: animate 15s linear infinite; }
+    .box div:nth-child(8) { top: 32%; left: 25%; animation: animate 16s linear infinite; }
+    .box div:nth-child(9) { top: 90%; left: 25%; animation: animate 9s linear infinite; }
+    .box div:nth-child(10) { top: 20%; left: 80%; animation: animate 5s linear infinite; }
+    .box div:nth-child(11) { top: 50%; left: 35%; animation: animate 8s linear infinite; }
+    .box div:nth-child(12) { top: 45%; left: 80%; animation: animate 14s linear infinite; }
+    .box div:nth-child(13) { top: 60%; left: 10%; animation: animate 13s linear infinite; }
+    .box div:nth-child(14) { top: 25%; left: 60%; animation: animate 11s linear infinite; }
+    .box div:nth-child(15) { top: 80%; left: 20%; animation: animate 17s linear infinite; }
+
+    @keyframes animate {
+      0% {
+        transform: scale(0) translateY(0) rotate(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5) translateY(-150px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+#navbar {
+    height: 10%;
+    width: 100%;
+    background-color: rgb(2, 22, 40);
+    color: antiquewhite;
+    font-family: Poppins, sans-serif;
+    display: flex;
+    
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+#namelogo {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 10px;
+    margin-left: 15px;
+    font-weight: 500;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.symbol {
+    color: #a259ff; /* Purple color for symbols */
+    font-weight: bold;
+    margin: 0 5px;
+    font-size: 28px; /* Larger size for symbols */
+    line-height: 1; /* Ensures proper vertical alignment */
+}
+
+.name {
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.navbuttons {
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    margin: 0 20px;
+}
+.navbuttons a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbuttons::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px; /* Adjust based on link height */
+    width: 0;
+    height: 2px;
+    background-color: #a259ff;
+    transition: width 0.3s ease;
+    
+}
+
+.navbuttons:hover::after {
+    width: 100%;
+    
+}
+
+#buttonsright{
+    display: flex;
+    margin-left:320px;
+}
+
+.Socialbuttons {
+    height: 50px;
+    position: relative;
+    width: 50px;
+    color: black;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+    border-radius: 25px;
+    border: solid 2px;
+    cursor: pointer;
+    margin-left: 50px;
+    overflow: hidden;
+    transition: width 0.3s ease, transform 0.3s ease;
+}
+
+
+.Socialbuttons img {
+    height: 35px;
+    transition: transform 0.3s ease;
+}
+
+.Socialtext {
+    opacity: 0;
+    visibility: hidden;
+    margin-left: 10px;
+    font-size: 14px;
+    display: none;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.Socialbuttons:hover {
+    transform: scale(1.05);
+    width: 167px;
+    justify-content: flex-start;
+    padding-left: 5px;
+    
+    /* padding-left: 10px; */
+}
+
+.Socialbuttons:hover .Socialtext {
+    opacity: 1;
+    display: inline;
+    visibility: visible;
+}
+.Socialbuttons a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#fake {
+    height: 10%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#home {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    overflow: hidden;
+}
+
+#taglinepopup {
+    height: 100%;
+    width: 50%;
+    display: block;
+    color: beige;
+    padding-left: 65px;
+    padding-top: 100px;
+    overflow: hidden;
+}
+.popuptext{
+    font-family: poppins;
+    font-size: 45px;
+    font-weight: bolder;
+
+}
+.popuptext2{
+    font-family: poppins;
+    font-size: 40px;
+    font-weight: bold;
+}
+#element{
+    font-family: poppins;
+    font-size: 38px;
+    font-weight: bold;
+    color:#a259ff;
+}
+.typed-cursor {
+    font-family: Poppins, sans-serif;
+    color: #a259ff; /* Matches text color */
+    font-weight: bold;
+    font-size: 38px;
+    animation: blink 0.7s infinite; /* Blinking effect */
+}
+.subheading{
+    font-family: poppins;
+    font-size: medium;
+}
+
+#resumebutton{
+    width: 300px;
+    height: 60px;
+    /* background-color: #a259ff; */
+    background-color:#a259ff;
+
+    color:antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: poppins;
+    font-size: larger;
+    font-weight: 500;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
+}
+#resumebutton:hover{
+    transform: scale(1.025);
+    background-color: #9b30b6; /* Lighter purple on hover */
+    box-shadow: 0 0 20px #9b30b6, 0 0 40px #9b30b6, 0 0 60px #9b30b6;
+}
+
+#selfimage {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    overflow: hidden;
+    /* align-items: center;
+    justify-content: center; */
+}
+#imgcontainer{
+    height: 60%;
+    width:60%;
+    background-color: #9b30b6;
+    margin-top: 100px;
+    margin-left:120px;
+    border-radius: 50%;
+    background-color: #9b30b6; 
+    box-shadow:  0 0 10px #800080, 0 0 20px #800080, 0 0 30px #800080;
+    overflow: hidden;
+    border: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    object-fit: contain;
+    
+    
+}
+#imgcontainer:hover{
+    transform: scale(1.05); /* Slight zoom effect on hover */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#imgcontainer img{
+    
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+}
+
+#page2 {
+    height: 90%;
+    width: 100%;
+    background-color: rgb(22, 19, 78);
+
+}
+#skillheading{
+    height:10%;
+    width: 100%;
+}
+#skillsheading h2{
+    text-align: center;
+    font-family: poppins;
+    color: antiquewhite;
+    font-size: 45px;
+    font-weight: bold;
+}
+#skillsubheading{
+    color: antiquewhite;
+    font-family: poppins;
+    text-align: center;
+    font-size: larger;
+
+
+}
+#cardcontainer{
+    margin: 50px;
+    height: 75%;
+    width: 100%;
+    display: flex;
+    overflow: visible;
+    box-sizing:border-box;
+}
+.imageskills{
+    height: 90px;
+    width: 90px;
+    object-fit: cover;
+    margin-bottom: 5px;
+    padding: 5px;
+    justify-content: center;
+    border: 2px solid antiquewhite;
+    overflow: hidden;
+    margin-top: 40px;
+    display: flex;
+   
+}
+
+
+.cardsforskills{
+    
+    box-sizing: border-box;
+    height: 100%;
+    padding: 50px;
+    display: inline;
+    justify-items: center;
+    margin-right: 20px;
+    width: 22%;
+    background-color: #a259ff ;
+    border: 4px antiquewhite solid;
+    border-radius: 30px;
+    
+    
+    overflow: visible;
+    
+    
+}
+.cardsforskills:hover {
+    transform:  scale(1.01); /* Move closer and slightly enlarge */
+    transition: transform 0.1s ease-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.cardsforskills h2{
+    text-align: center;
+    font-weight: bold;
+    
+    color: antiquewhite;
+    
+}
+#page3{
+    height: 90%;
+    width: 100%;
+    background-color: rgb(22, 19, 78);
+}
+
+
+#Experienceheading{
+    height:10%;
+    width: 100%;
+}
+#Experienceheading h2{
+    text-align: center;
+    font-family: poppins;
+    color: antiquewhite;
+    font-size: 45px;
+    font-weight: bold;
+}
+#Experiencesubheading{
+    color: antiquewhite;
+    font-family: poppins;
+    text-align: center;
+    font-size: larger;
+
+
+}
+
+/* Experience Section */
+.experience-section {
+    position: relative;
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    overflow: hidden;
+  }
+  
+  .experience-item {
+    position: relative;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+  }
+  
+  .experience-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out;
+  }
+  
+  .company-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  /* Parallax Effect */
+  .experience-item:hover .experience-content {
+    transform: translateZ(50px);
+  }
+  .project-item:hover .project-content {
+    transform: translateZ(50px);
+  }
+#page4 {
+    height: 90%;
+    width: 100%;
+    background-color: rgb(22, 19, 78);
+}
+.project-item {
+    
+    margin: 50px 0;
+    height:75%;
+    width: 40%;
+    display: inline-block;
+    justify-content: center;
+    margin-left: 80px;
+    /* perspective: 1000px; */
+  }
+  
+  .project-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out;
+  }
+  .project-item:hover {
+    transform:  scale(1.01); /* Move closer and slightly enlarge */
+    transition: transform 0.1s ease-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#page5 {
+    height: 90%;
+    width: 100%;
+    background-color: rgb(22, 19, 78);
+}
+
+#educationcontents{
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.educationcards{
+    
+    box-sizing: border-box;
+    height: 100%;
+    padding: 50px;
+    margin:30px;
+    width: 22%;
+    display: inline;
+    justify-items: center;
+    align-items: center;
+    background-color: #a259ff ;
+    border: 4px antiquewhite solid;
+    border-radius: 30px;
+    
+    
+    overflow: visible;
+
+}
+.educationcards p{
+    color: antiquewhite;
+    text-align: left;
+    font-weight: 500;
+}
+.educationcards:hover {
+    transform:  scale(1.01); /* Move closer and slightly enlarge */
+    transition: transform 0.1s ease-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#home, #page2, #page3, #page4, #page5 {
+    min-height: 100vh; /* Use min-height instead of height to avoid viewport resizing issues */
+}
+
+.footer-content{
+    height: 10%;
+    width: 100%;
+    margin-bottom: 0%;
+    color: antiquewhite;
+    background-color: #011a38;
+    position: relative;
+}
+  
+footer {
+    background-color: rgb(2, 22, 40);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+  
+  
+
+   
+
